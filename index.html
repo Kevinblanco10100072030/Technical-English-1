@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mercado Compra</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        /* Header estilo Mercado Libre */
+        header {
+            background-color: #ffe600;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 28px;
+            color: #3483fa;
+            cursor: pointer;
+        }
+
+        .search-bar {
+            flex: 1;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-bar input[type="text"] {
+            width: 100%;
+            padding: 10px 50px 10px 15px;
+            border-radius: 4px;
+            border: none;
+            font-size: 16px;
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            bottom: 5px;
+            background-color: #3483fa;
+            border: none;
+            color: white;
+            padding: 0 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-bar button:hover {
+            background-color: #2968c8;
+        }
+
+        nav {
+            background-color: white;
+            padding: 10px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+            justify-content: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #3483fa;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #d9e9ff;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+            overflow: hidden;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 5px 15px rgb(0 0 0 / 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            background-color: #f9f9f9;
+        }
+
+        .product-info {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 8px;
+            flex-grow: 1;
+        }
+
+        .juguetes-vertical {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 40px;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #3483fa;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            color: #777;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            .search-bar {
+                margin: 10px 0;
+            }
+        }
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Mercado Compra</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar productos, marcas y más..." />
+            <button>Buscar</button>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#" data-category="todos">Todos</a>
+        <a href="#" data-category="electronica">Aparatos Electrónicos</a>
+        <a href="#" data-category="hogar">Hogar</a>
+        <a href="#" data-category="ropa">Ropa</a>
+        <a href="#" data-category="deportes">Deportes</a>
+        <a href="#" data-category="juguetes">Juguetes</a>
+    </nav>
+
+    <main>
+        <h2 style="margin-bottom: 15px;">Juguetes destacados</h2>
+        <div class="juguetes-vertical">
+            <div class="product-card" data-category="juguetes">
+                <img class="product-image" src="https://http2.mlstatic.com/D_NQ_NP_2X_956716-MLA52211617870_102022-F.webp" alt="LEGO Classic" />
+                <div class="product-info">
+                    <div class="product-title">LEGO Classic Caja Creativa Mediana</div>
+                    <div class="product-price">$6,499</div>
+                </div>
+            </div>
+        
+            <div class="product-card" data-category="juguetes">
+                <img class="product-image" src="https://http2.mlstatic.com/D_NQ_NP_2X_791257-MLA50777932917_072022-F.webp" alt="Hot Wheels" />
+                <div class="product-info">
+                    <div class="product-title">Hot Wheels Pack 5 Autos</div>
+                    <div class="product-price">$2,199</div>
+                </div>
+            </div>
+        
+            <div class="product-card" data-category="juguetes">
+                <img class="product-image" src="https://http2.mlstatic.com/D_NQ_NP_2X_881684-MLA51565619822_092022-F.webp" alt="Juguete de cocina" />
+                <div class="product-info">
+                    <div class="product-title">Set de Cocina Infantil con Accesorios</div>
+                    <div class="product-price">$4,250</div>
+                </div>
+            </div>
+        
+            <div class="product-card" data-category="juguetes">
+                <img class="product-image" src="https://http2.mlstatic.com/D_NQ_NP_2X_822970-MLA51934773759_102022-F.webp" alt="Puzzle 1000 piezas" />
+                <div class="product-info">
+                    <div class="product-title">Rompecabezas 1000 Piezas Paisaje</div>
+                    <div class="product-price">$1,750</div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="products-grid">
+            <div class="product-card" data-category="electronica">
+                <img class="product-image" src="https://http2.mlstatic.com/D_NQ_NP_2X_935043-MLA46202968202_052021-F.webp" alt="Smartphone" />
+                <div class="product-info">
+                    <div class="product-title">Smartphone Samsung Galaxy A12 64GB</div>
+                    <div class="product-price">$19,999</div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="ropa">
+                <img class="product-image" src="https://http2.mlstatic.com/D_NQ_NP_2X_927141-MLA45816188804_052021-F.webp" alt="Zapatillas deportivas" />
+                <div class="product-info">
+                    <div class="product-title">Zapatillas Deportivas Nike Running</div>
+                    <div class="product-price">$4,299</div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="electronica">
+                <img class="product-image" src="https://http2.mlstatic.com/D_NQ_NP_2X_621117-MLA46213757326_052021-F.webp" alt="Smart TV" />
+                <div class="product-info">
+                    <div class="product-title">Smart TV LG 43&quot; 4K UHD</div>
+                    <div class="product-price">$29,999</div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="deportes">
+                <img class="product-image" src="https://http2.mlstatic.com/D_NQ_NP_2X_770712-MLA45388319134_032021-F.webp" alt="Bicicleta" />
+                <div class="product-info">
+                    <div class="product-title">Bicicleta Mountain Bike Rodado 29&quot;</div>
+                    <div class="product-price">$12,499</div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="electronica">
+                <img class="product-image" src="https://http2.mlstatic.com/D_NQ_NP_2X_968857-MLA46635737642_072021-F.webp" alt="Auriculares" />
+                <div class="product-info">
+                    <div class="product-title">Auriculares Bluetooth JBL Tune 500</div>
+                    <div class="product-price">$1,899</div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="electronica">
+                <img class="product-image" src="https://http2.mlstatic.com/D_NQ_NP_2X_823986-MLA45029225138_032021-F.webp" alt="Cámara" />
+                <div class="product-info">
+                    <div class="product-title">Cámara Digital Canon Powershot</div>
+                    <div class="product-price">$8,750</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2025 Mercado Compra. Todos los derechos reservados.
+    </footer>
+
+    <script>
+        document.querySelectorAll("nav a").forEach(link => {
+            link.addEventListener("click", function (e) {
+                e.preventDefault();
+                const selectedCategory = this.getAttribute("data-category");
+                const cards = document.querySelectorAll(".product-card");
+
+                cards.forEach(card => {
+                    const cardCategory = card.getAttribute("data-category");
+                    if (selectedCategory === "todos" || cardCategory === selectedCategory) {
+                        card.style.display = "flex";
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
